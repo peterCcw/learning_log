@@ -2,28 +2,39 @@
 {% load bootstrap4 %}
 
 {% block page_header %}
-  <h1>
-    Tematy
-  </h1>
+  <h2>Tematy</h2>
 {% endblock page_header %}
 
 {% block content %}
-  <div class="list-group">
+  <div class="list-group mb-2">
     {% for topic in topics %}
-        <h4>
-          <a class="list-group-item list-group-item-action" href="{% url 'learning_logs:topic' topic.id %}">
-            {{ topic }}
-          </a>
-        </h4>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+      <a class="btn btn-link" href="{% url 'learning_logs:topic' topic.id %}">
+        <h4>{{ topic }}</h4>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse{{ topic.id }}" aria-controls="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse{{  topic.id }}">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="btn btn-secondary mr-3 mt-1" href="{% url 'learning_logs:edit_topic' topic.id %}">
+                Edytuj temat
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-danger mt-1" href="{% url 'learning_logs:delete_topic' topic.id %}">
+                Usuń temat
+              </a>
+            </li>
+        </ul>
+      </div>
+    </nav>
     {% empty %}
         <h4>
           Nie został jeszcze dodany żaden temat.
         </h4>
     {% endfor %}
   </div>
-
-    <a class="btn btn-primary btn-lg" href="{% url 'learning_logs:new_topic' %}">
-      Dodaj nowy temat
-    </a>
-
+  <a class="btn btn-primary btn-lg" href="{% url 'learning_logs:new_topic' %}">Dodaj nowy temat</a>
 {% endblock content %}

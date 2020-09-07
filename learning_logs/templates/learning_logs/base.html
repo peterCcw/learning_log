@@ -45,6 +45,14 @@
 
     <main role="main" class="container">
       <div class="pb-2 mb-2 border-bottom">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
         {% block page_header %}{% endblock page_header %}
       </div>
       <div>

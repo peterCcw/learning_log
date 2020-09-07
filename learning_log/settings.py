@@ -26,7 +26,7 @@ from learning_log.secret_settings import secret_key_mine
 SECRET_KEY = secret_key_mine()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -78,8 +78,6 @@ TEMPLATES = [
     },
 ]
 
-print("cc "+os.path.join(BASE_DIR, 'templates'))
-
 WSGI_APPLICATION = 'learning_log.wsgi.application'
 
 
@@ -116,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'UTC'
 

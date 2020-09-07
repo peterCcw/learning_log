@@ -3,12 +3,18 @@
 {% block page_header %}
   <div class="jumbotron">
       <h1 class="display-3">Monitoruj postępy w nauce</h1>
-
-      <p class="lead">
-        Załóż konto, aby rozpocząć korzystanie z aplikacji Learning Log oraz wyświetlić listę poznawanych tematów.
-        Gdy nauczysz się czegoś nowego na dany temat, utwórz wpis podsumowujący to, czego się nauczyłeś.
-      </p>
-
-      <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Zarejestruj konto &raquo;</a>
+      {% if user.is_authenticated %}
+        <p class="lead">
+            Witaj, {{ user.username }}. Rozpocznij korzystanie z aplikacji Learning Log oraz wyświetlanie listy poznawanych tematów.
+            Gdy nauczysz się czegoś nowego na dany temat, utwórz wpis podsumowujący to, czego się nauczyłeś.
+        </p>
+        <a class="btn btn-lg btn-primary" href="{% url 'learning_logs:topics' %}" role="button">Przejdź do listy tematów &raquo;</a>
+      {% else %}
+        <p class="lead">
+          Załóż konto, aby rozpocząć korzystanie z aplikacji Learning Log oraz wyświetlić listę poznawanych tematów.
+          Gdy nauczysz się czegoś nowego na dany temat, utwórz wpis podsumowujący to, czego się nauczyłeś.
+        </p>
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Zarejestruj konto &raquo;</a>
+      {% endif %}
   </div>
 {% endblock page_header %}
