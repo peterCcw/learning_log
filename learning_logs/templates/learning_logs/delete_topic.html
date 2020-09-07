@@ -6,11 +6,11 @@
 {% endblock page_header %}
 
 {% block content %}
-  <label>Usuwanie tematu: {{ topic }}</label>
+  <label>Deleting a topic: {{ topic }}</label>
   <form class="form" method='post'action=".">
     {% csrf_token %}
-    <button class="btn btn-danger" name="submit">Usuń temat</button>
-    <a class="btn btn-secondary" href="{% url 'learning_logs:topics' %}">Anuluj</a>
+    <button class="btn btn-danger" name="submit">Delete topic</button>
+    <a class="btn btn-secondary" href="{% url 'learning_logs:topics' %}">Cancel</a>
   </form>
 {% endblock content %}
 

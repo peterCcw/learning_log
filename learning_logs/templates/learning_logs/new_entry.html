@@ -6,11 +6,11 @@
 {% endblock page_header %}
 
 {% block content %}
-  <label>Dodaj nowy wpis:</label>
+  <label>Add a new entry:</label>
   <form class="form" method='post'action="{% url 'learning_logs:new_entry' topic.id %}">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <button class="btn btn-primary" name="submit">Dodaj wpis</button>
-    <a class="btn btn-secondary" href="{% url 'learning_logs:topic' topic.id %}">Anuluj</a>
+    <button class="btn btn-primary" name="submit">Add entry</button>
+    <a class="btn btn-secondary" href="{% url 'learning_logs:topic' topic.id %}">Cancel</a>
   </form>
 {% endblock content %}

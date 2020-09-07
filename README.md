@@ -6,7 +6,7 @@ It contains some additional simple features which expand project from the book.
     * [About](#about)
     * [Additional features](#additional-features)
 * [Technologies](#technologies)
-* [How to play](#how-to-play)
+* [How to use](#how-to-use)
     * [Installation](#installation)
     * [Manual](#manual)
     
@@ -20,7 +20,7 @@ quality code according to the **Python Enhancement Proposals** and to learn very
 ##### Additional features
 Besides content provided by tutorial, the application contains also:
 * **Delete and editing** - user is able to delete and edit entries and topics
-* **Additional styling** - some additional styling added, buttons etc.
+* **Additional styling** - some additional styling added, buttons, messages etc.
 ### Technologies
 * [**Python 3.8.5**](https://www.python.org/)
 * [**Django 3.1.1**](https://www.djangoproject.com/)

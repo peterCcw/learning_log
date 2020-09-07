@@ -6,11 +6,11 @@
 {% endblock page_header %}
 
 {% block content %}
-  <label>Edycja tematu:</label>
+  <label>Editing a topic:</label>
   <form class="form" method='post' action="{% url 'learning_logs:edit_topic' topic.id %}">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <button class="btn btn-success" name="submit">Zapisz zmiany</button>
-    <a class="btn btn-secondary" href="{% url 'learning_logs:topics' %}">Anuluj</a>
+    <button class="btn btn-success" name="submit">Save changes</button>
+    <a class="btn btn-secondary" href="{% url 'learning_logs:topics' %}">Cancel</a>
   </form>
 {% endblock content %}

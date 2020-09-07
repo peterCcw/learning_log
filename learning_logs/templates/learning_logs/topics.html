@@ -2,7 +2,7 @@
 {% load bootstrap4 %}
 
 {% block page_header %}
-  <h2>Tematy</h2>
+  <h2>Topics</h2>
 {% endblock page_header %}
 
 {% block content %}
@@ -19,12 +19,12 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="btn btn-secondary mr-3 mt-1" href="{% url 'learning_logs:edit_topic' topic.id %}">
-                Edytuj temat
+                Edit topic
               </a>
             </li>
             <li class="nav-item">
               <a class="btn btn-danger mt-1" href="{% url 'learning_logs:delete_topic' topic.id %}">
-                Usuń temat
+                Delete topic
               </a>
             </li>
         </ul>
@@ -32,9 +32,9 @@
     </nav>
     {% empty %}
         <h4>
-          Nie został jeszcze dodany żaden temat.
+          No topics have been added yet.
         </h4>
     {% endfor %}
   </div>
-  <a class="btn btn-primary btn-lg" href="{% url 'learning_logs:new_topic' %}">Dodaj nowy temat</a>
+  <a class="btn btn-primary btn-lg" href="{% url 'learning_logs:new_topic' %}">Add new topic</a>
 {% endblock content %}

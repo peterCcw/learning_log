@@ -16,7 +16,7 @@ def register(request):
             new_user = form.save()
             # Logging new user and redirecting him to main page
             login(request, new_user)
-            messages.success(request, f'Pomyślnie zarejestrowano użytkownika "'
+            messages.success(request, f'Registered user "'
                                       f'{new_user.username}"')
             return redirect('learning_logs:index')
     # Displaying empty form

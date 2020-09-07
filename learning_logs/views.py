@@ -20,13 +20,13 @@ def topics(request):
 
 
 @login_required
-def topic(request, topic_id, message=None):
+def topic(request, topic_id):
     """Display single topic and all of its entries"""
     topic = Topic.objects.get(id=topic_id)
     check_topic_owner(request, topic)
 
     entries = topic.entry_set.order_by('-date_added')
-    context = {'topic': topic, 'entries': entries, 'message': message}
+    context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
 
 
@@ -44,7 +44,7 @@ def new_topic(request):
             new_topic.owner = request.user
             new_topic.save()
 
-            messages.success(request, f'Dodano temat: "{new_topic}"')
+            messages.success(request, f'Added topic: "{new_topic}"')
             return redirect('learning_logs:topics')
 
     # Displaying blank form
@@ -69,7 +69,7 @@ def new_entry(request, topic_id):
             new_entry.topic = topic
             form.save()
 
-            messages.success(request, f'Dodano wpis: "{new_entry}"')
+            messages.success(request, f'Added entry: "{new_entry}"')
             return redirect('learning_logs:topic', topic_id=topic_id)
 
     # Displaying blank form
@@ -92,7 +92,7 @@ def edit_entry(request, entry_id):
         form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Edytowano wpis: "{entry}" z dnia '
+            messages.success(request, f'Edited entry: "{entry}" of '
                                       f'{entry.date_added}')
             return redirect('learning_logs:topic', topic_id=topic.id)
 
@@ -116,7 +116,7 @@ def delete_entry(request, entry_id):
         return render(request, 'learning_logs/delete_entry.html', context)
     else:
         entry.delete()
-        messages.success(request, f'Usunięto wpis: "{entry}" z dnia '
+        messages.success(request, f'Deleted entry: "{entry}" z dnia '
                                   f'{entry.date_added}')
         return redirect('learning_logs:topic', topic_id=topic.id)
 
@@ -131,7 +131,7 @@ def delete_topic(request, topic_id):
         return render(request, 'learning_logs/delete_topic.html', context)
     else:
         topic.delete()
-        messages.success(request, f'Usunięto temat: "{topic}"')
+        messages.success(request, f'Deleted entry: "{topic}"')
         return redirect('learning_logs:topics')
 
 @login_required
@@ -148,7 +148,7 @@ def edit_topic(request, topic_id):
         form = TopicForm(instance=topic, data=request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Dokonano edycji tematu: "{topic}"')
+            messages.success(request, f'Edited topic: "{topic}"')
             return redirect('learning_logs:topics')
     context = {'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_topic.html', context)

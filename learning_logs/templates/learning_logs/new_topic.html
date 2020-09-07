@@ -2,15 +2,15 @@
 {% load bootstrap4 %}
 
 {% block page_header %}
-  <h2>Dodaj nowy temat</h2>
+  <h2>Add a new topic</h2>
 {% endblock page_header %}
 
 {% block content %}
-  <label>Nazwa nowego tematu:</label>
+  <label>The name of the new topic:</label>
   <form class="form" method='post' action="{% url 'learning_logs:new_topic' %}">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <button class="btn btn-primary" name="submit">Dodaj temat</button>
-    <a class="btn btn-secondary" href="{% url 'learning_logs:topics' %}">Anuluj</a>
+    <button class="btn btn-primary" name="submit">Add topic</button>
+    <a class="btn btn-secondary" href="{% url 'learning_logs:topics' %}">Cancel</a>
   </form>
 {% endblock content %}

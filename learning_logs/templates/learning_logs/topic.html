@@ -6,18 +6,18 @@
 
 {% block content %}
   <p>
-    <a class="btn btn-primary btn-lg" href="{% url 'learning_logs:new_entry' topic.id %}">Dodaj nowy wpis</a>
-    <a class="btn btn-secondary btn-lg" href="{% url 'learning_logs:topics'%}">Tematy</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+    <a class="btn btn-secondary btn-lg" href="{% url 'learning_logs:topics'%}">Topics</a>
   </p>
   {% for entry in entries %}
     <div class="card mb-3">
       <h4 class="card-header d-flex">
         <span class="mr-auto">{{ entry.date_added|date:'d M Y H:i' }}</span>
         <a class="btn btn-secondary mr-3" href="{% url 'learning_logs:edit_entry' entry.id %}">
-          Edytuj wpis
+          Edit entry
         </a>
         <a class="btn btn-danger" href="{% url 'learning_logs:delete_entry' entry.id %}">
-          Usuń wpis
+          Delete entry
         </a>
       </h4>
       <div class="card-body">
@@ -26,7 +26,7 @@
     </div>
   {% empty %}
     <h4>
-      Nie ma jeszcze żadnego wpisu dla tego tematu.
+      There are no entries for this topic yet.
     </h4>
   {% endfor %}
 {% endblock content %}
