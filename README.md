@@ -56,3 +56,5 @@ Application gives you possibility to register your account and to create topics.
 about your progress during learning.
 
 Topics and entries can be deleted when you don't need them anymore.
+
+![Interface](/readme_images/learning_log.png)
